@@ -4,7 +4,7 @@ export function coffee(options) {
     return {
         name: 'coffee',
         transform: function(src, id) {
-            if (/\.coffee$/.test(id)) {
+            if (/\.(coffee|csx|cs)$/.test(id)) {
                 const result = compile(src, {
                     filename: id,
                     ...options
