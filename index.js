@@ -5,10 +5,12 @@ export function coffee(options) {
         name: 'coffee',
         transform: function(src, id) {
             if (/\.(coffee|cs|cs\.jsx)$/.test(id)) {
+                console.log("compile ",id)
                 const result = compile(src, {
                     filename: id,
                     ...options
                 });
+                console.log("compile finished ",id)
                 if (result.js) {
                     return {
                         code: result.js,
